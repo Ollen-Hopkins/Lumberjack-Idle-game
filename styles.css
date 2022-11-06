@@ -1,0 +1,18 @@
+.inventory{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+button{
+    background-color: white;
+    font-size: 18px;
+}
+.marketplace{
+    display: none;
+}
+
+.sellButtons{
+    display: grid;
+    grid-template-columns: repeat(3, 72px);
+    margin-bottom: 10px;
+}
