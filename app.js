@@ -20,6 +20,18 @@ $(document).ready(function(){
         changeInventory();
         changeMarket();
     });
+    $('#sellTen').click(function(){
+        logs-= 10;
+        money += logPrice * 10;
+        changeInventory();
+        changeMarket();
+    });
+    $('#sellAll').click(function(){
+        money += logPrice * logs;
+        logs = 0;
+        changeInventory();
+        changeMarket();
+    });
 
 
     $('#visit').click(function(){
@@ -70,4 +82,4 @@ $(document).ready(function(){
         return menu;
     }
 
-})
+});
