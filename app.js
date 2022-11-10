@@ -8,6 +8,12 @@ $(document).ready(function(){
     let logPrice = 1;
     let menu;
 
+    setInterval(function(){
+        logs += autoLogPlus;
+        changeInventory();
+        changeMarket();
+    }, 1000);
+
     $("#chop").click(function(){
         logs += logPlus;
         changeInventory();
@@ -33,6 +39,13 @@ $(document).ready(function(){
         changeMarket();
     });
 
+    $("#autoChopper").click(function(){
+        money -= autoChopperPrice;
+        autoLogPlus++;
+        changeInventory();
+        changeMarket();
+    });
+
 
     $('#visit').click(function(){
         menu = switchMenu('marketplace');
@@ -45,7 +58,7 @@ $(document).ready(function(){
     });
 
     function changeInventory(){
-        $("#money").html("Money: $", money);
+        $("#money").html("Money: $" + money);
         if (logs === 1) {
             $("#logs").html('You now own ' + logs + ' log.');
         }
@@ -73,6 +86,12 @@ $(document).ready(function(){
         }
         else{
             $('#sellTen').css('display', 'none');
+        }
+        if(money >= autoChopperPrice){
+            $('#autoChopper').css('display', 'block');
+        }
+        else{
+            $('#autoChopper').css('display', 'none');
         }
     }
 
