@@ -2,6 +2,8 @@
 $(document).ready(function(){
     let logs = 0;
     let pickaxes = 0;
+    let stone = 0;
+    let stonePlus = 1;
     let money = 0;
     let logPlus = 1;
     let autoLogPlus = 0;
@@ -20,6 +22,16 @@ $(document).ready(function(){
         logs += logPlus;
         changeInventory();
         changeMarket();
+    });
+
+    $('#mineStone').click(function(){
+        if(pickaxes === 0 ){
+            alert('You have nothing to mine stone with!');
+        }
+        else{
+            stone += stonePlus;
+            changeInventory();
+        }
     });
 
     $('#sellOne').click(function(){
@@ -74,12 +86,19 @@ $(document).ready(function(){
         else{
             $("#logs").html('You now own ' + logs + ' logs.');
         }
+        if (stone > 0) {
+            $("#stone").html('You now own ' + stone + ' pieces(s) of stone.');
+        }
+        else{
+            $("#stone").html('');
+        }
         if (pickaxes > 0) {
             $("#pickaxes").html('You now own ' + pickaxes + ' pickaxe(s)');
         }
         else{
             $("#pickaxes").html('');
         }
+        
     }
 
     function changeMarket(){
